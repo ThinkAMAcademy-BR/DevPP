@@ -7,3 +7,4 @@ bin/
 aspnet-core/src/DevPP.Web.Host/App_Data/Logs/
 aspnet-core/src/DevPP.Web.Mvc/App_Data/Logs/
 aspnet-core/src/DevPP.Migrator/Logs/Logs.txt
+aspnet-core/src/DevPP.Web.Host/appsettings.Production.json
