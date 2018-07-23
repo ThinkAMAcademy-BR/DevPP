@@ -1,33 +1,19 @@
-# Introduction
+# Introdução
 
-This is a template to create **ASP.NET Core MVC / Angular** based startup projects for [ASP.NET Boilerplate](https://aspnetboilerplate.com/Pages/Documents). It has 2 different versions:
+Este é um exemplo criado para o **DevPP** baseado em projetos [ASP.NET Boilerplate](https://aspnetboilerplate.com/Pages/Documents). Nós estamos usando a seguinte versão:
 
-1. [ASP.NET Core MVC & jQuery](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core) (server rendered multi-page application).
-2. [ASP.NET Core & Angular](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular) (single page application).
+1. [ASP.NET Core & Angular](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular) (single page application).
  
-User Interface is based on [BSB Admin theme](https://github.com/gurayyarar/AdminBSBMaterialDesign).
+User Interface é baseada em [BSB Admin theme](https://github.com/gurayyarar/AdminBSBMaterialDesign).
  
-# Download
+# Meetup IX do DevPP
 
-Create & download your project from https://aspnetboilerplate.com/Templates
+Neste Meetup é demonstrado como fazemos a integração do Facebook com o Angular usando o Asp.Net Core como Back-end, é claro que podemos substituir o back-end para outra linguagem como o PHP, Node, enfim...
 
-# Screenshots
+# Documentação do Template
 
-#### Sample Dashboard Page
-![](_screenshots/module-zero-core-template-ui-home.png)
-
-#### User Creation Modal
-![](_screenshots/module-zero-core-template-ui-user-create-modal.png)
-
-#### Login Page
-
-![](_screenshots/module-zero-core-template-ui-login.png)
-
-# Documentation
-
-* [ASP.NET Core MVC & jQuery version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core)
 * [ASP.NET Core & Angular  version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular)
 
-# License
+# Licença
 
 [MIT](LICENSE).
