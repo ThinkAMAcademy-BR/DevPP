@@ -8,7 +8,9 @@
                     <i class="material-icons">person</i>
                 </span>
                 <div class="form-line">
-                    <input materialInput [(ngModel)]="loginService.authenticateModel.userNameOrEmailAddress" autoFocus class="form-control" type="text" autocomplete="off" placeholder="{{l('UserNameOrEmail')}}" name="userNameOrEmailAddress" required maxlength="255" />
+                    <input materialInput [(ngModel)]="loginService.authenticateModel.userNameOrEmailAddress" autoFocus class="form-control" type="text"
+                        autocomplete="off" placeholder="{{l('UserNameOrEmail')}}" name="userNameOrEmailAddress" required maxlength="255"
+                    />
                 </div>
             </div>
 
@@ -17,17 +19,25 @@
                     <i class="material-icons">lock</i>
                 </span>
                 <div class="form-line">
-                    <input materialInput type="password" [(ngModel)]="loginService.authenticateModel.password" class="form-control" name="password" placeholder="{{l('Password')}}" required maxlength="32">
+                    <input materialInput type="password" [(ngModel)]="loginService.authenticateModel.password" class="form-control" name="password"
+                        placeholder="{{l('Password')}}" required maxlength="32">
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-8 p-t-5">
-                    <input type="checkbox"  [(ngModel)]="loginService.rememberMe" name="rememberMe" id="rememberme" class="filled-in chk-col-pink" value="true">
+                    <input type="checkbox" [(ngModel)]="loginService.rememberMe" name="rememberMe" id="rememberme" class="filled-in chk-col-pink"
+                        value="true">
                     <label for="rememberme">{{l("RememberMe")}}</label>
                 </div>
                 <div class="col-xs-4">
                     <button id="LoginButton" class="btn btn-block bg-pink waves-effect" type="submit">{{l("LogIn")}}</button>
                 </div>
+            </div>
+            <div class="row">
+                <div class="fb-login-button" data-max-rows="1" data-size="large" 
+                    (click)="signInWithFB()"
+                    data-button-type="continue_with" data-show-faces="false"
+                    data-auto-logout-link="false" data-use-continue-as="false"></div>
             </div>
 
             <div class="row m-t-15 m-b--20" *ngIf="isSelfRegistrationAllowed">

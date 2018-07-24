@@ -23,6 +23,28 @@ import { AccountLanguagesComponent } from './layout/account-languages.component'
 
 import { LoginService } from './login/login.service';
 
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from 'angularx-social-login';
+
+const config = new AuthServiceConfig([
+    {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('Google-OAuth-Client-Id')
+    },
+    {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider('Facebook-App-Id')
+    },
+    {
+        id: LinkedInLoginProvider.PROVIDER_ID,
+        provider: new LinkedInLoginProvider('LinkedIn-client-Id', false, 'en_US')
+    }
+]);
+
+export function provideConfig() {
+    return config;
+}
+
 @NgModule({
     imports: [
         CommonModule,
@@ -33,6 +55,7 @@ import { LoginService } from './login/login.service';
         SharedModule,
         ServiceProxyModule,
         AccountRoutingModule,
+        SocialLoginModule,
         ModalModule.forRoot()
     ],
     declarations: [
@@ -44,7 +67,11 @@ import { LoginService } from './login/login.service';
         AccountLanguagesComponent
     ],
     providers: [
-        LoginService
+        LoginService,
+        {
+            provide: AuthServiceConfig,
+            useFactory: provideConfig
+        }
     ]
 })
 export class AccountModule {
