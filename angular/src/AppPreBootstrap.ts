@@ -23,7 +23,7 @@ export class AppPreBootstrap {
         }
 
         return abp.ajax({
-            url: '/assets/appconfig.json',
+            url: url,
             method: 'GET',
             headers: {
                 'Abp.TenantId': abp.multiTenancy.getTenantIdCookie()
