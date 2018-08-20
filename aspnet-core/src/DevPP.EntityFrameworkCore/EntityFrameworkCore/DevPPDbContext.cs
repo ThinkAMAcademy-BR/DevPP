@@ -8,7 +8,7 @@ namespace DevPP.EntityFrameworkCore
 {
     public class DevPPDbContext : AbpZeroDbContext<Tenant, Role, User, DevPPDbContext>
     {
-        /* Define a DbSet for each entity of the application */
+        public virtual DbSet<Status> Status { get; set; }
         
         public DevPPDbContext(DbContextOptions<DevPPDbContext> options)
             : base(options)

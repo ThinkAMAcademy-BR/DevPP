@@ -4,14 +4,16 @@ using DevPP.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevPP.Migrations
 {
     [DbContext(typeof(DevPPDbContext))]
-    partial class DevPPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180820202457_Added_Status")]
+    partial class Added_Status
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
