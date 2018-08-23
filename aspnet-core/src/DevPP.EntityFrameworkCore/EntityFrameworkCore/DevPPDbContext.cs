@@ -3,11 +3,11 @@ using Abp.Zero.EntityFrameworkCore;
 using DevPP.Authorization.Roles;
 using DevPP.Authorization.Users;
 using DevPP.MultiTenancy;
+using DevPP.Presentations;
 
 namespace DevPP.EntityFrameworkCore
-{
-    using Presentation;
-    
+{   
+
     public class DevPPDbContext : AbpZeroDbContext<Tenant, Role, User, DevPPDbContext>
     {
 

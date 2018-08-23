@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities.Auditing;
 using DevPP.Authorization.Users;
 
-namespace DevPP.Presentation
+namespace DevPP.Presentations
 {
     [Table("AppPresentation")]
     public class Presentation : FullAuditedEntity<Guid>
