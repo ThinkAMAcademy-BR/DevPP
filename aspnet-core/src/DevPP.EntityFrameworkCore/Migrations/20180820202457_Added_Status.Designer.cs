@@ -4,14 +4,16 @@ using DevPP.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevPP.Migrations
 {
     [DbContext(typeof(DevPPDbContext))]
-    partial class DevPPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180820202457_Added_Status")]
+    partial class Added_Status
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1056,52 +1058,7 @@ namespace DevPP.Migrations
                     b.ToTable("AbpTenants");
                 });
 
-            modelBuilder.Entity("DevPP.Presentation.Presentation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Code");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<long?>("DeleterUserId");
-
-                    b.Property<DateTime?>("DeletionTime");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(2048);
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<DateTime?>("LastModificationTime");
-
-                    b.Property<long?>("LastModifierUserId");
-
-                    b.Property<string>("Slide");
-
-                    b.Property<long>("SpeakerId");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(128);
-
-                    b.Property<string>("Video");
-
-                    b.Property<bool>("isActive");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SpeakerId");
-
-                    b.ToTable("AppPresentation");
-                });
-
             modelBuilder.Entity("DevPP.Status", b =>
-
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -1297,14 +1254,6 @@ namespace DevPP.Migrations
                     b.HasOne("DevPP.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
-                });
-
-            modelBuilder.Entity("DevPP.Presentation.Presentation", b =>
-                {
-                    b.HasOne("DevPP.Authorization.Users.User", "Speaker")
-                        .WithMany()
-                        .HasForeignKey("SpeakerId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>

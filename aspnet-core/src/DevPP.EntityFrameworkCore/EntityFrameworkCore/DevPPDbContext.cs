@@ -10,7 +10,10 @@ namespace DevPP.EntityFrameworkCore
     
     public class DevPPDbContext : AbpZeroDbContext<Tenant, Role, User, DevPPDbContext>
     {
+
         public virtual DbSet<Presentation> Presentations { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
+        
         public DevPPDbContext(DbContextOptions<DevPPDbContext> options)
             : base(options)
         {
