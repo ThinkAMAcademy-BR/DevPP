@@ -6,10 +6,11 @@ using DevPP.MultiTenancy;
 
 namespace DevPP.EntityFrameworkCore
 {
+    using Presentation;
+    
     public class DevPPDbContext : AbpZeroDbContext<Tenant, Role, User, DevPPDbContext>
     {
-        /* Define a DbSet for each entity of the application */
-        
+        public virtual DbSet<Presentation> Presentations { get; set; }
         public DevPPDbContext(DbContextOptions<DevPPDbContext> options)
             : base(options)
         {

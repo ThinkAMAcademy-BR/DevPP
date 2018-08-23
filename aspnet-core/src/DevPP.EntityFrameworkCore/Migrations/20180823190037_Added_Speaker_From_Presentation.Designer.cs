@@ -4,14 +4,16 @@ using DevPP.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevPP.Migrations
 {
     [DbContext(typeof(DevPPDbContext))]
-    partial class DevPPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180823190037_Added_Speaker_From_Presentation")]
+    partial class Added_Speaker_From_Presentation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -4,14 +4,16 @@ using DevPP.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevPP.Migrations
 {
     [DbContext(typeof(DevPPDbContext))]
-    partial class DevPPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180823182202_Added_Presentation")]
+    partial class Added_Presentation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1083,8 +1085,6 @@ namespace DevPP.Migrations
 
                     b.Property<string>("Slide");
 
-                    b.Property<long>("SpeakerId");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(128);
@@ -1094,8 +1094,6 @@ namespace DevPP.Migrations
                     b.Property<bool>("isActive");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SpeakerId");
 
                     b.ToTable("AppPresentation");
                 });
@@ -1268,14 +1266,6 @@ namespace DevPP.Migrations
                     b.HasOne("DevPP.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
-                });
-
-            modelBuilder.Entity("DevPP.Presentation.Presentation", b =>
-                {
-                    b.HasOne("DevPP.Authorization.Users.User", "Speaker")
-                        .WithMany()
-                        .HasForeignKey("SpeakerId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>
