@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevPP.Migrations
 {
     [DbContext(typeof(DevPPDbContext))]
-    [Migration("20180823190037_Added_Speaker_From_Presentation")]
-    partial class Added_Speaker_From_Presentation
+    [Migration("20181213205312_Upgraded_With_Thinkers")]
+    partial class Upgraded_With_Thinkers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -956,7 +956,13 @@ namespace DevPP.Migrations
 
                     b.Property<long?>("LastModifierUserId");
 
+                    b.Property<string>("LastPresentationUrl")
+                        .HasMaxLength(500);
+
                     b.Property<DateTime?>("LockoutEndDateUtc");
+
+                    b.Property<string>("MiniBio")
+                        .HasMaxLength(500);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -983,15 +989,24 @@ namespace DevPP.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasMaxLength(128);
 
+                    b.Property<string>("Site")
+                        .HasMaxLength(256);
+
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasMaxLength(32);
 
                     b.Property<int?>("TenantId");
 
+                    b.Property<string>("Title")
+                        .HasMaxLength(256);
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(32);
+
+                    b.Property<string>("WhatsApp")
+                        .HasMaxLength(30);
 
                     b.HasKey("Id");
 
@@ -1058,7 +1073,7 @@ namespace DevPP.Migrations
                     b.ToTable("AbpTenants");
                 });
 
-            modelBuilder.Entity("DevPP.Presentation.Presentation", b =>
+            modelBuilder.Entity("DevPP.Presentations.Presentation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -1100,6 +1115,34 @@ namespace DevPP.Migrations
                     b.HasIndex("SpeakerId");
 
                     b.ToTable("AppPresentation");
+                });
+
+            modelBuilder.Entity("DevPP.Status", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<long?>("DeleterUserId");
+
+                    b.Property<DateTime?>("DeletionTime");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(80);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppStatus");
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>
@@ -1272,7 +1315,7 @@ namespace DevPP.Migrations
                         .HasForeignKey("LastModifierUserId");
                 });
 
-            modelBuilder.Entity("DevPP.Presentation.Presentation", b =>
+            modelBuilder.Entity("DevPP.Presentations.Presentation", b =>
                 {
                     b.HasOne("DevPP.Authorization.Users.User", "Speaker")
                         .WithMany()
